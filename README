@@ -1,15 +1,14 @@
-This is Boa, a high performance web server for Unix-alike computers,
-covered by the Gnu General Public License.  This is version 0.94,
-released January 2000.  It is well tested and appears to be of
-at least "gamma" quality.
+cd boa-0.94.13/src
+./configure
 
-Boa was created in 1991 by Paul Phillips <paulp@go2net.com>.  It is now being
-maintained and enhanced by Larry Doolittle <ldoolitt@boa.org>
-and Jon Nelson <jnelson@boa.org>.
+vi Makefile
+CC = /home/s5pv210/test0108/opt/FriendlyARM/toolschain/4.5.1/bin/arm-none-linux-gnueabi-gcc
+CPP = /home/s5pv210/test0108/opt/FriendlyARM/toolschain/4.5.1/bin/arm-none-linux-gnueabi-gcc -E
 
-For more information (including installation instructions) examine
-the file docs/boa.txt or docs/boa.dvi, point your web browser to docs/boa.html,
-or visit the Boa homepage at
+make V=s
 
-        http://www.boa.org/
-
+cp boa ../install/sbin
+cd ..
+cp install/* ../mini_busybox/ -raf
+cd ..
+sudo ./mkyaffs2image mini_busybox/ rootfs.yaffs2
